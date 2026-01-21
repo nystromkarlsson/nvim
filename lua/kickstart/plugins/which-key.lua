@@ -41,7 +41,7 @@ return {
     spec = {
       {
         '<leader>s',
-        group = '[S]earch',
+        group = 'Search',
         mode = {
           'n',
           'v',

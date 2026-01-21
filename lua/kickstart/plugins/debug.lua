@@ -52,7 +52,7 @@ return {
     {
       '<F5>',
       function() require('dap').continue() end,
-      desc = 'Debug: start / continue',
+      desc = 'Debug: Start / continue',
     },
     {
       '<F1>',
@@ -137,6 +137,6 @@ return {
       end,
       desc = 'Debug: edit breakpoint',
     },
-    { '<F7>', function() require('dapui').toggle() end, desc = 'Debug: see last session result' },
+    { '<F7>', function() require('dapui').toggle() end, desc = 'Debug: See last session result' },
   },
 }
