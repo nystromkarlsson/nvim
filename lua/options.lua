@@ -17,6 +17,7 @@ vim.o.smartcase = true
 vim.o.splitbelow = true
 vim.o.splitright = true
 vim.o.startofline = true
+vim.o.tabstop = 2
 vim.o.timeoutlen = 300
 vim.o.undofile = true
 vim.o.updatetime = 250
