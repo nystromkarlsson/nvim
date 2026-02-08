@@ -28,4 +28,15 @@ vim.opt.listchars = {
   nbsp = '␣',
 }
 
+vim.api.nvim_create_autocmd({
+  'BufNewFile',
+  'BufRead',
+}, {
+  pattern = '*.kage',
+  callback = function()
+    local buf = vim.api.nvim_get_current_buf()
+    vim.api.nvim_set_option_value('filetype', 'go', { buf = buf })
+  end,
+})
+
 -- vim: ts=2 sts=2 sw=2 et
