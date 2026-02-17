@@ -63,5 +63,3 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     ),
     callback = function() vim.hl.on_yank({ timeout = 200 }) end,
 })
-
--- vim: ts=2 sts=2 sw=2 et
