@@ -1,42 +1,33 @@
-vim.o.number = true
-vim.o.relativenumber = true
-vim.o.mouse = 'a'
-vim.o.showmode = false
+-- Line numbers
+vim.opt.nu = true
+vim.opt.relativenumber = true
 
-vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
+-- Indentation
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 4
+vim.opt.smartindent = true
+vim.opt.softtabstop = 4
+vim.opt.tabstop = 4
 
-vim.o.breakindent = true
-vim.o.confirm = true
-vim.o.cursorline = true
-vim.o.ignorecase = true
-vim.o.inccommand = 'split'
-vim.o.list = true
-vim.o.scrolloff = 999
-vim.o.signcolumn = 'yes'
-vim.o.smartcase = true
-vim.o.splitbelow = true
-vim.o.splitright = true
-vim.o.startofline = true
-vim.o.tabstop = 2
-vim.o.timeoutlen = 300
-vim.o.undofile = true
-vim.o.updatetime = 250
-vim.o.wrap = false
-vim.opt.listchars = {
-  tab = '» ',
-  trail = '·',
-  nbsp = '␣',
-}
+-- Line display
+vim.opt.scrolloff = 8
+vim.opt.wrap = false
 
-vim.api.nvim_create_autocmd({
-  'BufNewFile',
-  'BufRead',
-}, {
-  pattern = '*.kage',
-  callback = function()
-    local buf = vim.api.nvim_get_current_buf()
-    vim.api.nvim_set_option_value('filetype', 'go', { buf = buf })
-  end,
-})
+-- File handling
+vim.opt.backup = false
+vim.opt.swapfile = false
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undofile = true
 
--- vim: ts=2 sts=2 sw=2 et
+-- Search
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
+
+-- UI / appearance
+vim.opt.signcolumn = "yes"
+vim.opt.termguicolors = true
+
+-- Misc
+vim.opt.isfname:append("@-@")
+vim.opt.updatetime = 50
+vim.schedule(function() vim.o.clipboard = "unnamedplus" end)
