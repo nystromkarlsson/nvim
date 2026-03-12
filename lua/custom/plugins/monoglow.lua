@@ -1,5 +1,6 @@
 return {
     "wnkz/monoglow.nvim",
+    enabled = false,
     lazy = false,
     opts = {},
     priority = 1000,

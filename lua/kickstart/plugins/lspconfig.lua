@@ -184,36 +184,30 @@ return {
                 virtual_lines = true,
             })
 
-            -- local capabilities = require('blink.cmp').get_lsp_capabilities()
             ---@class LspServersConfig
             ---@field mason table<string, vim.lsp.Config>
             ---@field others table<string, vim.lsp.Config>
             local servers = {
                 mason = {
-                    -- clangd = {},
                     gopls = {},
                     pyright = {},
-                    -- rust_analyzer = {},
                     lua_ls = {
                         settings = {
                             Lua = {
-                                completion = {
-                                    callSnippet = "Replace",
+                                runtime = {
+                                    version = "LuaJIT",
                                 },
-                                diagnostics = { disable = { "missing-fields" } },
+                                workspace = {
+                                    checkThirdParty = false,
+                                    library = {
+                                        vim.env.VIMRUNTIME,
+                                    },
+                                },
                             },
                         },
                     },
                 },
-                others = {
-                    biome = {
-                        root_dir = require("lspconfig.util").root_pattern(
-                            "biome.json",
-                            "biome.jsonc"
-                        ),
-                        single_file_support = false,
-                    },
-                },
+                others = {},
             }
 
             for server, config in
@@ -232,6 +226,12 @@ return {
             if not vim.tbl_isempty(servers.others) then
                 vim.lsp.enable(vim.tbl_keys(servers.others))
             end
+
+            vim.lsp.config("biome", {
+                root_markers = { "biome.json", "biome.jsonc" },
+                single_file_support = false,
+            })
+            vim.lsp.enable("biome")
         end,
     },
 }

@@ -19,6 +19,8 @@ return {
             end
         end,
         formatters_by_ft = {
+            css = { "prettier" },
+            scss = { "prettier" },
             lua = { "stylua" },
             javascript = { "biome", "biome-organize-imports" },
             javascriptreact = { "biome", "biome-organize-imports" },
