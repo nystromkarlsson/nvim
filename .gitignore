@@ -1,7 +1,4 @@
 .DS_Store
 .luarc.json
-lazy-lock.json
-nvim
 spell/
 tags
-test.sh
